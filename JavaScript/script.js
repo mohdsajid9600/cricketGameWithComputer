@@ -10,7 +10,7 @@ button.forEach((btn) => {
 
     // Display Choices and Score on the Screen
     let userChoice = document.querySelector("#user-choice");
-    userChoice.textContent = `You Chose: ${btn.textContent}`;
+    userChoice.textContent = `You Chose: ${userMove}`;
 
     // Display Computer Choice on the Screen
     let computerChoiceDisplay = document.querySelector("#computer-choice");

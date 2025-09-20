@@ -1,16 +1,34 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CricketGameWithComputer </title>
-    <link rel="stylesheet" href="/CSS/style.css">
-</head>
-<body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CricketGameWithComputer</title>
+    <link rel="stylesheet" href="/CSS/style.css" />
+  </head>
+  <body>
     <h1 id="#heading">Welcome to Cricket Game with Computer</h1>
-    <button class="btn" onclick=" ">Bat</button>
-    <button class="btn" onclick=" ">Ball</button>
-    <button class="btn" onclick=" ">Stump</button>
+
+    <div class="container">
+        <div class="choice">
+      <img
+        src="/images/bat.png"
+        alt="Bat Image"
+        class="choice-image"
+      />
+      <button id="btn-bat" class="btn">Bat</button>
+    </div>
+
+    <div class="choice">
+      <img src="/images/ball.png" alt="Ball Image" class="choice-image" />
+      <button id="btn-ball" class="btn">Ball</button>
+    </div>
+
+    <div class="choice">
+      <img src="/images/stump.png" alt="Stump Image" class="choice-image" />
+      <button id="btn-stump" class="btn">Stump</button>
+    </div>
+    </div>
 
     <h2 id="user-choice"></h2>
     <h2 id="computer-choice"></h2>
@@ -18,7 +36,7 @@
     <h2 id="show-score"></h2>
 
     <button class="reset-btn">Reset</button>
-    
+
     <script src="/JavaScript/script.js"></script>
-</body>
+  </body>
 </html>
