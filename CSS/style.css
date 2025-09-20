@@ -6,7 +6,7 @@ body{
             color: darkblue;
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
-        .btn{
+        .btn, .reset-btn{
             background-color: darkblue;
             color: white;
             padding: 10px 20px;
@@ -16,6 +16,6 @@ body{
             cursor: pointer;
             font-size: 16px;
         }
-        .btn:hover{
+        .btn:hover , .reset-btn:hover{
             background-color: rgb(31, 31, 146);
         }
