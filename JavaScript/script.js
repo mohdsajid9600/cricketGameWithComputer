@@ -6,7 +6,7 @@
                 userMove = btn.textContent;
                 alert(`You have to chose ${btn.textContent} and Computer chose ${computerChoice()}.
                 
-                      Result is ${showResult()}`);
+                      Result is ${gameResult()}`);
             });
         });
        // Computer Choice Function 
@@ -19,6 +19,22 @@
                 return "Ball";
             } else {
                 return "Stump";
+            }
+        }
+
+        // Game Result Function
+        let ComputerMove = computerChoice();
+        function gameResult() {
+            if (userMove === computerChoice) {
+                return "It's a Tie!";
+            } else if (
+                (userMove === "Bat" && ComputerMove === "Ball") ||
+                (userMove === "Ball" && ComputerMove === "Stump") ||
+                (userMove === "Stump" && ComputerMove === "Bat")
+            ) {
+                return "You Win!";
+            } else {
+                return "Computer Wins!";
             }
         }
         
