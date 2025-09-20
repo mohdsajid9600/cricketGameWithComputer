@@ -1,0 +1,21 @@
+body{
+            text-align: center;
+            background-color: lightblue;
+        }
+        #heading{
+            color: darkblue;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        .btn{
+            background-color: darkblue;
+            color: white;
+            padding: 10px 20px;
+            margin: 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        .btn:hover{
+            background-color: rgb(31, 31, 146);
+        }
