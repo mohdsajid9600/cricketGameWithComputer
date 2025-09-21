@@ -3,39 +3,45 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>CricketGameWithComputer</title>
-    <link rel="stylesheet" href="CSS/style.css" />
+    <title>ComputerGame</title>
+    <link rel="stylesheet" href="css/style.css" />
   </head>
   <body>
-    <h1 id="#heading">Welcome to Cricket Game with Computer</h1>
+    <!-- Home Page Content-->
 
-    <div class="container">
+    <div class="home-container">
+      <h1>Welcome to Cricket Game with Computer</h1>
 
-      <div class="choice">
-        <img src="images/bat.png" alt="Bat Image" class="choice-image" />
-        <button id="btn-bat" class="btn">Bat</button>
-      </div>
+      <button onclick="location.href='html/home.html'">Play Game</button>
 
-      <div class="choice">
-        <img src="images/ball.png" alt="Ball Image" class="choice-image" />
-        <button id="btn-ball" class="btn">Ball</button>
-      </div>
-
-      <div class="choice">
-        <img src="images/stump.png" alt="Stump Image" class="choice-image" />
-        <button id="btn-stump" class="btn">Stump</button>
-      </div>
-
+      <h2>Game Rules:</h2>
+      <h3 class="game-instructions">
+        you can choose either Bat, Ball or Stump.<br />
+        The computer will also make a choice.<br />
+        The rules are as follows:<br />
+      </h3>
+      <!-- Game Rules List -->
+      <ul class="game-rules">
+        <li>
+          If <strong>you</strong> and <strong>computer</strong> choose the
+          <strong>same option</strong>, it's a <strong>Tie</strong>.
+        </li>
+        <li>
+          If you choose <strong>Bat</strong> and computer chooses
+          <strong>Ball</strong>, <strong>You Win!</strong>
+        </li>
+        <li>
+          If you choose <strong>Ball</strong> and computer chooses
+          <strong>Stump</strong>, <strong>You Win!</strong>
+        </li>
+        <li>
+          If you choose <strong>Stump</strong> and computer chooses
+          <strong>Bat</strong>, <strong>You Win!</strong>
+        </li>
+        <li>
+          In all other cases, <strong>Computer Wins! or You losses</strong>
+        </li>
+      </ul>
     </div>
-
-    <h2 id="user-choice"></h2>
-    <h2 id="computer-choice"></h2>
-    <h2 id="show-result"></h2>
-    <h2 id="show-score"></h2>
-    
-
-    <button class="reset-btn">Reset</button>
-
-    <script src="js/script.js"></script>
   </body>
 </html>
