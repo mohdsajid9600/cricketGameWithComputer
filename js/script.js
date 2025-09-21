@@ -1,6 +1,6 @@
 const button = document.querySelectorAll(".btn");
 let userMove;
-let ComputerMove;
+let computerMove;
 let updateResult;
 
 
@@ -8,28 +8,28 @@ let updateResult;
 button.forEach((btn) => {
   btn.addEventListener("click", () => {
     userMove = btn.textContent;
-    ComputerMove = computerChoice();  
+    computerMove = computerChoice();  
     updateResult = updateGameResult();
-    displayResult(userMove, ComputerMove, updateResult); // Display after each move
-    saveLastGame(userMove, ComputerMove, updateResult); // Save after each move
+    displayResult(userMove, computerMove, updateResult); // Display after each move
+    saveLastGame(userMove, computerMove, updateResult); // Save after each move
   });
 });
 
 
 // Display Result Function to show the result of the game and choices made by user and computer!
-function displayResult(userMove, ComputerMove, result) {
+function displayResult(userMove, computerMove, result) {
   document.querySelector("#user-choice").textContent = `You Chose: ${userMove}`;
-  document.querySelector("#computer-choice").textContent = `Computer Chose: ${ComputerMove}`;
+  document.querySelector("#computer-choice").textContent = `Computer Chose: ${computerMove}`;
   document.querySelector("#show-result").textContent = result;
   document.querySelector("#show-score").textContent = `Score:  Wins ${score.win} , Losses ${score.lose} , Ties ${score.tie}`; // Update UI
 
 }
 
 // Save last game data to localStorage after each move
-function saveLastGame(userMove, ComputerMove, result) {
+function saveLastGame(userMove, computerMove, result) {
   localStorage.setItem("LastGame", JSON.stringify({
     userMove,
-    ComputerMove,
+    computerMove,
     result
   }));
 }
@@ -38,8 +38,8 @@ function saveLastGame(userMove, ComputerMove, result) {
 window.addEventListener("DOMContentLoaded", () => {
   const lastGame = localStorage.getItem("LastGame");
   if (lastGame) {
-    const { userMove, ComputerMove, result } = JSON.parse(lastGame);
-    displayResult(userMove, ComputerMove, result);
+    const { userMove, computerMove, result } = JSON.parse(lastGame);
+    displayResult(userMove, computerMove, result);
   } else {
     displayResult("", "", "Make Your Move!");
   }
@@ -72,10 +72,10 @@ resetBtn.addEventListener("click", () => {
 
 // Computer Choice Function which randomly choose between Bat, Ball and Stump!
 function computerChoice() {
-  let ComputerChoseRanNum = Math.floor(Math.random() * 3);
-  if (ComputerChoseRanNum === 0) {
+  let computerChoseRanNum = Math.floor(Math.random() * 3);
+  if (computerChoseRanNum === 0) {
     return "Bat";
-  } else if (ComputerChoseRanNum === 1) {
+  } else if (computerChoseRanNum === 1) {
     return "Ball";
   } else {
     return "Stump";
@@ -85,13 +85,13 @@ function computerChoice() {
 // Update Game Result Function which also display the score and who win the game!
 function updateGameResult() {
   let result;
-    if (userMove === ComputerMove) {
+    if (userMove === computerMove) {
         score.tie++;
         result = "It's a Tie!";
     } else if (
-        (userMove === "Bat" && ComputerMove === "Ball") ||
-        (userMove === "Ball" && ComputerMove === "Stump") ||
-        (userMove === "Stump" && ComputerMove === "Bat")
+        (userMove === "Bat" && computerMove === "Ball") ||
+        (userMove === "Ball" && computerMove === "Stump") ||
+        (userMove === "Stump" && computerMove === "Bat")
     ) {
         score.win++;
         result = "You Win!";
