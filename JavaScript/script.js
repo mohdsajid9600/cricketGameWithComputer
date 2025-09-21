@@ -6,28 +6,21 @@ let ComputerMove;
 button.forEach((btn) => {
   btn.addEventListener("click", () => {
     userMove = btn.textContent;
-    ComputerMove = computerChoice();
-
-    // Display Choices and Score on the Screen
-    let userChoice = document.querySelector("#user-choice");
-    userChoice.textContent = `You Chose: ${userMove}`;
-
-    // Display Computer Choice on the Screen
-    let computerChoiceDisplay = document.querySelector("#computer-choice");
-    computerChoiceDisplay.textContent = `Computer Chose: ${ComputerMove}`;
-
-    // Display Result on the Screen on each screen
-    let showResult = document.querySelector("#show-result");
-    showResult.textContent = gameResult();
-
-    // Display Score on the Screen on each screen
-    let userScore = document.querySelector("#show-score");
-    userScore.textContent = `Score:  Wins ${score.win} , Losses ${score.lose} , Ties ${score.tie}`;
+    ComputerMove = computerChoice();  
+    displayResult(userMove,ComputerMove,updateGameResult());
   });
 });
 
-// Score Keeping using Local Storage to keep the score even after refreshing the page!
+// Display Result Function to show the result of the game and choices made by user and computer!
+function displayResult(userMove, ComputerMove, result) {
+  document.querySelector("#user-choice").textContent = `You Chose: ${userMove}`;
+  document.querySelector("#computer-choice").textContent = `Computer Chose: ${ComputerMove}`;
+  document.querySelector("#show-result").textContent = result;
+  document.querySelector("#show-score").textContent = `Score:  Wins ${score.win} , Losses ${score.lose} , Ties ${score.tie}`; // Update UI
 
+}
+
+// Score Keeping using Local Storage to keep the score even after refreshing the page!
 let localScore = localStorage.getItem("ScoreData");
 let score = localScore
   ? JSON.parse(localScore)
@@ -38,7 +31,6 @@ let score = localScore
     };
 
 // Reset Button Functionality to reset the score and clear the local storage data!
-
 const resetBtn = document.querySelector(".reset-btn");
 resetBtn.addEventListener("click", () => {
   localStorage.clear();
@@ -54,7 +46,6 @@ resetBtn.addEventListener("click", () => {
 });
 
 // Computer Choice Function which randomly choose between Bat, Ball and Stump!
-
 function computerChoice() {
   let ComputerChoseRanNum = Math.floor(Math.random() * 3);
   if (ComputerChoseRanNum === 0) {
@@ -66,9 +57,8 @@ function computerChoice() {
   }
 }
 
-// Game Result Function which also display the score and who win the game!
-
-function gameResult() {
+// Update Game Result Function which also display the score and who win the game!
+function updateGameResult() {
   let result;
     if (userMove === ComputerMove) {
         score.tie++;
