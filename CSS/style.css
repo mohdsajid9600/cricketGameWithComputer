@@ -72,7 +72,7 @@ body{
             background-color:#83a2c3;;
             border: 2px solid darkblue;
             border-radius: 10px;
-            box-shadow: 13px 17px 20px  rgba(235, 119, 61, 0.1);
+            box-shadow: 10px 15px 20px rgba(35, 121, 178, 0.888);;
         }
         .btn, .reset-btn{
             transition: background-color 0.3s ease;
