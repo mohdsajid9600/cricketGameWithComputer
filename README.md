@@ -11,7 +11,6 @@ Check out the live demo here: [Live Demo Link](https://mohdsajid9600.github.io/c
 ## 🖼️ Screenshot
 
 ![Game Screenshot](/images/screenshot.png)  
-*(Add your screenshot image in the `images` folder and update the path if needed)*
 
 ## Features
 
