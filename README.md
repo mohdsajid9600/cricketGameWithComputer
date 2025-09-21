@@ -5,7 +5,7 @@ A simple web-based cricket game where you play against the computer. Built using
 
 ## 🕹️ Live Demo
 
-Check out the live demo here: [Live Demo Link](#)  
+Check out the live demo here: [Live Demo Link](https://mohdsajid9600.github.io/cricketGameWithComputer/)  
 
 
 ## 🖼️ Screenshot
