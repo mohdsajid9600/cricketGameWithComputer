@@ -1,15 +1,20 @@
 const button = document.querySelectorAll(".btn");
 let userMove;
 let ComputerMove;
+let updateResult;
 
-// Display Function when user click the button Bat, Ball or Stump!
+
+// Update your button click handler to save last game
 button.forEach((btn) => {
   btn.addEventListener("click", () => {
     userMove = btn.textContent;
     ComputerMove = computerChoice();  
-    displayResult(userMove,ComputerMove,updateGameResult());
+    updateResult = updateGameResult();
+    displayResult(userMove, ComputerMove, updateResult); // Display after each move
+    saveLastGame(userMove, ComputerMove, updateResult); // Save after each move
   });
 });
+
 
 // Display Result Function to show the result of the game and choices made by user and computer!
 function displayResult(userMove, ComputerMove, result) {
@@ -19,6 +24,26 @@ function displayResult(userMove, ComputerMove, result) {
   document.querySelector("#show-score").textContent = `Score:  Wins ${score.win} , Losses ${score.lose} , Ties ${score.tie}`; // Update UI
 
 }
+
+// Save last game data to localStorage after each move
+function saveLastGame(userMove, ComputerMove, result) {
+  localStorage.setItem("LastGame", JSON.stringify({
+    userMove,
+    ComputerMove,
+    result
+  }));
+}
+
+// On page load, display last game if available
+window.addEventListener("DOMContentLoaded", () => {
+  const lastGame = localStorage.getItem("LastGame");
+  if (lastGame) {
+    const { userMove, ComputerMove, result } = JSON.parse(lastGame);
+    displayResult(userMove, ComputerMove, result);
+  } else {
+    displayResult("", "", "Make Your Move!");
+  }
+});
 
 // Score Keeping using Local Storage to keep the score even after refreshing the page!
 let localScore = localStorage.getItem("ScoreData");
